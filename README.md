@@ -6,6 +6,7 @@ jieba analysis plugin for elasticsearch: ***5.4.0***, ***5.3.0***, ***5.2.2***, 
 
 | 分支      | tag        | elasticsearch版本 | Release Link                                                                                  |
 | ---       | ---        | ---               | ---                                                                                           |
+| 6.2.3     | tag v6.2.3 | v6.2.3            |
 | 5.5.1     | tag v5.5.1 | v5.5.1            |
 | 5.4.0     | tag v5.4.0 | v5.4.0            | Download: [v5.4.0](https://github.com/sing1ee/elasticsearch-jieba-plugin/releases/tag/v5.4.0) |
 | 5.3.0     | tag v5.3.0 | v5.3.0            | Download: [v5.3.0](https://github.com/sing1ee/elasticsearch-jieba-plugin/releases/tag/v5.3.0) |
