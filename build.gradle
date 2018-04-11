@@ -8,7 +8,7 @@
  */
 
 group 'org.elasticsearch'
-version = '6.2.3'
+version = '5.6.8'
 apply plugin: 'java'
 apply plugin: 'idea'
 
@@ -17,7 +17,7 @@ targetCompatibility = "1.8"
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
 repositories {
-    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+    // maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
     jcenter()
 }
 sourceSets {
@@ -54,15 +54,14 @@ configurations {
 
 dependencies {
     compile 'com.huaban:jieba-analysis:1.0.2'
-    compile 'org.elasticsearch:elasticsearch:6.2.3'
+    compile 'org.elasticsearch:elasticsearch:5.6.8'
     compile 'org.apache.logging.log4j:log4j-api:2.7'
     compile 'org.apache.logging.log4j:log4j-core:2.7'
     testCompile 'junit:junit:4.12'
 }
 
 task pz(type: Zip, dependsOn: [':jar']) {
-    // compression = Compression.GZIP
-    into('jieba') {
+    into('elasticsearch') {
         from configurations.distJars
         from 'build/libs'
         from 'build/resources/main/plugin.xml'
@@ -71,6 +70,6 @@ task pz(type: Zip, dependsOn: [':jar']) {
     from('build/resources/main/') {
         include '**.dict'
         include '**.txt'
-        into ('jieba/dic')
+        into ('elasticsearch/dic')
     }
 }

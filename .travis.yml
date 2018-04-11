@@ -1,0 +1,15 @@
+language: java
+script:
+- gradle pz
+- ls -l build/distributions
+deploy:
+  provider: releases
+  api_key: 
+    secure: "dkpCVziMprMG0Dx6/F12GS603N/Tg+j1hg5DYd2GjX02oJPTvAB5p9344cOCiJINaJJPa5O77N+nOq0E94UAIBrPdpX1sDXcH0uk5HgkPOTTW7Z08rhlh3Elfmxr8NOWX+qEg7fQjLV1bcB9SLEPiD2Wg2z7i8AsGsHP6JkbG5PjTzLX1LMs0dygTQKlSL1+1OM6/VCz5odWKxP4FyjoL8wwvMoyKhNNf0FIn2P3s6Z4DmpgEaADmaEd/Bm91W2/kU8fl0s2IUretmWXWU9aUXA7pSJ8EvvU8CPduh0AETxbl/mFwMsnyeOtE1OGe/7CCk+i/IeRbLktPVOGiRryvBsgEFbKIIB0ttk3CKfAGNDGn7bh6O8N68BoPnswnD2Wq4O1HdY/29vLSC1dJSLW2s/44dH3I/5S+Z23Jh8hc/Gnt5zt48LdGPaGTa1dLekF1xkfi98Li0jnkOl81VvHGil+C1SjRDW8HguaGtfl9gaz/Z/srJfxdF54TqcyyLaFGRTrMNf8dPJ0I3/WQIfUuU30cT2LubYACZvnS+yWpOtmolm5dsWrT+zsuYuJYWtEz8RttxHFQ9f2dy7hAtShE6+yjqNOSYlPU+wDkOBmor/0tWtGM0UbBEAHZf9w1NVsUoqZNiDbHUkq8sjtfcE5TMIuOwJTN1/uRi1CVyUbLEY="
+  file: ./build/distributions/*.zip
+  skip_cleanup: true
+  overwrite: true
+  file_glob: true
+  on:
+    repo: orangemi/elasticsearch-jieba-plugin
+    tags: true
