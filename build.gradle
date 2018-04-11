@@ -17,7 +17,7 @@ targetCompatibility = "1.8"
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
 repositories {
-    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+    // maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
     jcenter()
 }
 sourceSets {
@@ -61,8 +61,7 @@ dependencies {
 }
 
 task pz(type: Zip, dependsOn: [':jar']) {
-    // compression = Compression.GZIP
-    into('jieba') {
+    into('elasticsearch') {
         from configurations.distJars
         from 'build/libs'
         from 'build/resources/main/plugin.xml'
@@ -71,6 +70,6 @@ task pz(type: Zip, dependsOn: [':jar']) {
     from('build/resources/main/') {
         include '**.dict'
         include '**.txt'
-        into ('jieba/dic')
+        into ('elasticsearch/dic')
     }
 }
