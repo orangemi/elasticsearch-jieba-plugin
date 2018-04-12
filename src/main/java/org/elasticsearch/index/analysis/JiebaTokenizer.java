@@ -31,17 +31,15 @@ public class JiebaTokenizer extends Tokenizer {
   }
 
   @Override
-  public boolean incrementToken() throws IOException {
+  final public boolean incrementToken() throws IOException {
     clearAttributes();
-    if (jieba.hasNext()) {
-      SegToken token = jieba.next();
-      termAtt.append(token.word);
-      termAtt.setLength(token.word.length());
-      offsetAtt.setOffset(token.startOffset, token.endOffset);
-      endPosition = token.endOffset;
-      return true;
-    }
-    return false;
+    if (!jieba.hasNext()) return false;
+    SegToken token = jieba.next();
+    termAtt.append(token.word);
+    termAtt.setLength(token.word.length());
+    offsetAtt.setOffset(token.startOffset, token.endOffset);
+    endPosition = token.endOffset;
+    return true;
   }
 
   @Override
