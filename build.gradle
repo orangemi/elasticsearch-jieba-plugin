@@ -61,7 +61,7 @@ dependencies {
 }
 
 task pz(type: Zip, dependsOn: [':jar']) {
-    into('elasticsearch') {
+    into('.') {
         from configurations.distJars
         from 'build/libs'
         from 'build/resources/main/plugin.xml'
@@ -70,6 +70,6 @@ task pz(type: Zip, dependsOn: [':jar']) {
     from('build/resources/main/') {
         include '**.dict'
         include '**.txt'
-        into ('elasticsearch/dic')
+        into ('dic')
     }
 }
